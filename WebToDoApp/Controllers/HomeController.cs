@@ -23,14 +23,14 @@ namespace WebToDoApp.Controllers
         public ActionResult CurrentTasks()
         {
             userId = GetCurrentUserId();
-            return View(db.ToDoList.Where(model => model.IsDone != true && model.Id == userId).ToList());
+            return View(db.ToDoList.Where(model => model.IsDone != true && model.UserId == userId).ToList());
         }
 
         [Authorize]
         public ActionResult CompletedTasks()
         {
             userId = GetCurrentUserId();
-            return View(db.ToDoList.Where(model => model.IsDone == true && model.Id == userId).ToList());
+            return View(db.ToDoList.Where(model => model.IsDone == true && model.UserId == userId).ToList());
         }
 
         [Authorize]
