@@ -5,11 +5,11 @@
 @model List<ToDoItem>
 
 <div>
-    <table>
+    <table class="table">
         <tr>
             <td>Задача</td>
-            <td>Заметка</td>
-            <td class="text-right">удалить</td>
+            <td>Описание задачи</td>
+            <td>удалить</td>
         </tr>
         @foreach (ToDoItem item in Model)
         {

@@ -3,27 +3,29 @@
     ViewBag.Title = "Войти";
 }
 
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary()
+<div class="text-center">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
 
-    <p>Войти</p>
-    <div>
-        @Html.LabelFor(model => model.UserName)
-    </div>
-    <div>
-        @Html.EditorFor(model => model.UserName)
-        @Html.ValidationMessageFor(model => model.UserName)
-    </div>
+        <h1>Войти</h1>
+        <div>
+            @Html.LabelFor(model => model.UserName)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
 
-    <div>
-        @Html.LabelFor(model => model.Password)
-    </div>
-    <div>
-        @Html.EditorFor(model => model.Password)
-        @Html.ValidationMessageFor(model => model.Password)
-    </div>
-    <br />
+        <div>
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+        <br />
 
-    <div><button class="btn btn-default">Войти</button></div>
-}
+        <div><button class="btn btn-default">Войти</button></div>
+    }
+</div>

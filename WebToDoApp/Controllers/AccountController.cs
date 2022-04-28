@@ -14,7 +14,7 @@ namespace WebToDoApp.Controllers
     public class AccountController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        // GET: Account
+
         public ActionResult Index()
         {
             return View();
