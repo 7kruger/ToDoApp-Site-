@@ -66,7 +66,8 @@ namespace WebToDoApp.Controllers
         public async Task<ActionResult> Edit(int id)
         {
             ToDoItem item = await db.ToDoList.FindAsync(id);
-            EditViewModel model = new EditViewModel { Id = item.Id };
+            EditViewModel model = new EditViewModel { Id = item.Id, Title = item.Title,
+             Description = item.Description };
             return View(model);
         }
         [HttpPost]
@@ -76,11 +77,14 @@ namespace WebToDoApp.Controllers
             {
                 return View(model);
             }
+            //userId = GetCurrentUserId();
             ToDoItem newItem = new ToDoItem
             {
+                Id = model.Id,
                 Title = model.Title,
                 Description = model.Description,
-                IsDone = model.IsDone
+                IsDone = model.IsDone,
+                UserId = GetCurrentUserId()
             };
             db.Entry(newItem).State = System.Data.Entity.EntityState.Modified;
             await db.SaveChangesAsync();
