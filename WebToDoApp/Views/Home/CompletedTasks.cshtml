@@ -1,0 +1,23 @@
+﻿@using WebToDoApp.Models.Entities
+@{
+    ViewBag.Title = "Выполненые задачи";
+}
+@model List<ToDoItem>
+
+<div>
+    <table>
+        <tr>
+            <td>Задача</td>
+            <td>Заметка</td>
+            <td class="text-right">удалить</td>
+        </tr>
+        @foreach (ToDoItem item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td><a class="text-right">Удалить</a></td>
+            </tr>
+        }
+    </table>
+</div>

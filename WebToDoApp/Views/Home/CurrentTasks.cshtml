@@ -1,0 +1,27 @@
+﻿@using WebToDoApp.Models.Entities;
+@{
+    ViewBag.Title = "Список текущих дел";
+}
+@model List<ToDoItem>
+
+<div>
+    <table>
+        <tr>
+            <td>Задача</td>
+            <td>Заметка</td>
+            <td>Редактировать</td>
+            <td>Завершить</td>
+            <td class="text-right">удалить</td>
+        </tr>
+        @foreach (ToDoItem item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td><a href="/Home/Edit/@item.Id">Редактировать</a></td>
+                <td><a href="/Home/AddToArchive/@item.Id">Завершить</a></td>
+                <td><a href="/Home/Delete/@item.Id">Удалить</a></td>
+            </tr>
+        }
+    </table>
+</div>

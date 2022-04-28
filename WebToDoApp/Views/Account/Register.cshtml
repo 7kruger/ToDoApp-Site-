@@ -1,0 +1,38 @@
+﻿@model WebToDoApp.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <p>Зарегистрироваться</p>
+
+    <div>
+        @Html.LabelFor(model => model.UserName)
+    </div>
+    <div>
+        @Html.EditorFor(model => model.UserName)
+        @Html.ValidationMessageFor(model => model.UserName)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Password)
+    </div>
+    <div>
+        @Html.EditorFor(model => model.Password)
+        @Html.ValidationMessageFor(model => model.Password)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.ConfirmPassword)
+    </div>
+    <div>
+        @Html.EditorFor(model => model.ConfirmPassword)
+        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+    </div>
+    <br />
+
+    <div><button class="btn btn-default">Зарегистрироваться</button></div>
+}

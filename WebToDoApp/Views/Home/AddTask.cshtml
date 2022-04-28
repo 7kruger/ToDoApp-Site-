@@ -1,0 +1,29 @@
+﻿@model WebToDoApp.Models.ToDoViewModel
+@{
+    ViewBag.Title = "AddTask";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <p>Добавить новую задачу</p>
+    <div>
+        @Html.LabelFor(model => model.Title)
+    </div>
+    <div>
+        @Html.EditorFor(model => model.Title)
+        @Html.ValidationMessageFor(model => model.Title)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Description)
+    </div>
+    <div>
+        @Html.TextAreaFor(model => model.Description)
+        @Html.ValidationMessageFor(model => model.Description)
+    </div>
+    <br />
+
+    <div><button class="btn btn-default">Добавить</button></div>
+}
