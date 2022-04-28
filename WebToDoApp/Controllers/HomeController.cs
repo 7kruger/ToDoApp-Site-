@@ -56,13 +56,14 @@ namespace WebToDoApp.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Index", "Home");
         }
+        [Authorize]
         public async Task<ActionResult> Delete(int id)
         {
             db.ToDoList.Remove(await db.ToDoList.FindAsync(id));
             await db.SaveChangesAsync();
             return RedirectToAction("Index", "Home");
         }
-
+        [Authorize]
         public async Task<ActionResult> Edit(int id)
         {
             ToDoItem item = await db.ToDoList.FindAsync(id);
@@ -89,7 +90,7 @@ namespace WebToDoApp.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Index", "Home");
         }
-
+        [Authorize]
         public async Task<ActionResult> AddToArchive(int id)
         {
             var item = await db.ToDoList.FindAsync(id);
