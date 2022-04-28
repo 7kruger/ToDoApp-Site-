@@ -77,7 +77,6 @@ namespace WebToDoApp.Controllers
             {
                 return View(model);
             }
-            //userId = GetCurrentUserId();
             ToDoItem newItem = new ToDoItem
             {
                 Id = model.Id,
