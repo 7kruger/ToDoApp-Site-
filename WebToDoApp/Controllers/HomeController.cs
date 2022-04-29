@@ -16,7 +16,7 @@ namespace WebToDoApp.Controllers
         private int userId;
         public ActionResult Index()
         {
-            return View(db.ToDoList.ToList());
+            return View();
         }
 
         [Authorize]
