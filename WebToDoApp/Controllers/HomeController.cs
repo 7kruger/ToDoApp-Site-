@@ -33,6 +33,15 @@ namespace WebToDoApp.Controllers
             return View(db.ToDoList.Where(model => model.IsDone == true && model.UserId == userId).ToList());
         }
 
+        public async Task<ActionResult> Return(int id)
+        {
+            var item = await db.ToDoList.FindAsync(id);
+            item.IsDone = false;
+            db.Entry(item).State = System.Data.Entity.EntityState.Modified;
+            await db.SaveChangesAsync();
+            return RedirectToAction("CompletedTasks", "Home");
+        }
+
         [Authorize]
         public ActionResult AddTask()
         {
@@ -54,7 +63,7 @@ namespace WebToDoApp.Controllers
             };
             db.ToDoList.Add(item);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("CurrentTasks", "Home");
         }
         [Authorize]
         public async Task<ActionResult> Delete(int id)

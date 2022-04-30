@@ -9,14 +9,16 @@
         <tr>
             <td>Задача</td>
             <td>Описание задачи</td>
-            <td>удалить</td>
+            <td></td>
+            <td></td>
         </tr>
         @foreach (ToDoItem item in Model)
         {
             <tr>
                 <td>@item.Title</td>
                 <td>@item.Description</td>
-                <td><a href="/Home/Delete/@item.Id">Удалить</a></td>
+                <td><a href="/Home/Return/@item.Id" class="btn btn-warning">Вернуть задание к невыполненым</a></td>
+                <td><a href="/Home/Delete/@item.Id" class="btn btn-danger">Удалить</a></td>
             </tr>
         }
     </table>
