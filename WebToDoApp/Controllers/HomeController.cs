@@ -39,7 +39,7 @@ namespace WebToDoApp.Controllers
             item.IsDone = false;
             db.Entry(item).State = System.Data.Entity.EntityState.Modified;
             await db.SaveChangesAsync();
-            return RedirectToAction("CompletedTasks", "Home");
+            return RedirectToAction("CompletedTasks");
         }
 
         [Authorize]
@@ -63,14 +63,14 @@ namespace WebToDoApp.Controllers
             };
             db.ToDoList.Add(item);
             await db.SaveChangesAsync();
-            return RedirectToAction("CurrentTasks", "Home");
+            return RedirectToAction("CurrentTasks");
         }
         [Authorize]
         public async Task<ActionResult> Delete(int id)
         {
             db.ToDoList.Remove(await db.ToDoList.FindAsync(id));
             await db.SaveChangesAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index");
         }
         [Authorize]
         public async Task<ActionResult> Edit(int id)
@@ -97,7 +97,7 @@ namespace WebToDoApp.Controllers
             };
             db.Entry(newItem).State = System.Data.Entity.EntityState.Modified;
             await db.SaveChangesAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index");
         }
         [Authorize]
         public async Task<ActionResult> AddToArchive(int id)
@@ -106,7 +106,7 @@ namespace WebToDoApp.Controllers
             item.IsDone = true;
             db.Entry(item).State = System.Data.Entity.EntityState.Modified;
             await db.SaveChangesAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index");
         }
 
         public int GetCurrentUserId()
